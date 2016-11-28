@@ -1,6 +1,8 @@
 import math
 import time
 
+starttime = time.time()
+
 def error():
 	print("INVALID MOVE!")
 
@@ -152,4 +154,6 @@ else:
 		automove3()
 		count = count + 8
 
-print("FINISHED in",count,"moves, Ideal:", pow(2,N)-1)
+ideal = pow(2,N)-1
+endtime = time.time()
+print("FINISHED in",count,"moves (Ideal:", ideal, ") and ", endtime - starttime, "seconds")
