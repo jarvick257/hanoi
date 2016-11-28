@@ -60,9 +60,8 @@ def move(a,b):
 		if b.put(el):
 			a.put(el)
 			error()
-	printt()
 	time.sleep(delay)
-	return 0
+	printt()
 
 def move3(a,b):
 	q = T[3 - (a.idx-1) - (b.idx-1)]
@@ -113,9 +112,9 @@ while N<3:
 	if N < 3:
 		print("You need at least 3 disks!")
 
-t1 = tower(N,1)
-t2 = tower(N,2)
-t3 = tower(N,3)
+t1 = tower(N, 1)
+t2 = tower(N, 2)
+t3 = tower(N, 3)
 
 T = [t1 ,t2, t3]
 
@@ -135,7 +134,7 @@ if mode == "m":
 		if i >= 0 and i < 3 and j >= 0 and j < 3 and i!=j:
 			if T[i].peek() < T[j].peek() or T[j].isEmpty():
 				move(T[i],T[j])
-				count = count +1
+				count = count + 1
 			else: error()
 		else: error()
 else:
