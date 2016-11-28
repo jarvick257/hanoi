@@ -1,8 +1,6 @@
 import math
 import time
 
-starttime = time.time()
-
 def error():
 	print("INVALID MOVE!")
 
@@ -129,6 +127,7 @@ count = 0
 
 mode = input("Automatic or Manual mode? a/m ")
 if mode == "m":
+	starttime = time.time()
 	delay = 0
 	while t3.k != t3.max:
 		i = int(input("Move from tower "))-1
@@ -141,6 +140,7 @@ if mode == "m":
 		else: error()
 else:
 	delay = input("Set delay (float, default: 0.2): ")
+	starttime = time.time()
 	if delay == "": delay = 0.2
 	else: delay = float(delay)
 
