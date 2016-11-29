@@ -1,6 +1,8 @@
 import math
 import time
 
+QUIET = 0
+
 def error():
 	print("INVALID MOVE!")
 
@@ -47,10 +49,11 @@ class tower:
 		else: return 0
 
 def printt():
-	for i in range(0,t1.max):
-		s = str(t1.read(i)) + "  " + str(t2.read(i)) + "  "  + str(t3.read(i))
-		print(s)
-	print("---------")
+	if QUIET == 0:
+		for i in range(0,t1.max):
+			s = str(t1.read(i)) + "  " + str(t2.read(i)) + "  "  + str(t3.read(i))
+			print(s)
+		print("---------")
 
 def move(a,b):
 	if a.k == 0:
@@ -125,7 +128,7 @@ for i in range(0,N):
 printt()
 count = 0
 
-mode = input("Automatic or Manual mode? a/m ")
+mode = input("Automatic (optional: quiet) or Manual mode? a/aq/m ")
 if mode == "m":
 	starttime = time.time()
 	delay = 0
@@ -139,11 +142,15 @@ if mode == "m":
 			else: error()
 		else: error()
 else:
-	delay = input("Set delay (float, default: 0.2): ")
-	starttime = time.time()
-	if delay == "": delay = 0.2
-	else: delay = float(delay)
+	if mode=="aq":
+		QUIET = 1
+		delay = 0
+	else:
+		delay = input("Set delay (float, default: 0.2): ")
+		if delay == "": delay = 0.2
+		else: delay = float(delay)
 
+	starttime = time.time()
 	if N%2 == 0:
 		move3(t1,t2)
 	else:
